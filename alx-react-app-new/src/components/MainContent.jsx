@@ -1,4 +1,5 @@
 // MainContent.jsx
+// src/components/MainContent.jsx
 import React from 'react';
 
 const MainContent = () => {
@@ -10,9 +11,9 @@ const MainContent = () => {
       borderRadius: '10px',
       fontFamily: 'Arial, sans-serif'
     }}>
-      <h2 style={{ color: '#333' }}>I love to visit to visit New York, Paris, and Tokyo.</h2>
+      <h2 style={{ color: '#333' }}>Welcome to my favorite cities!</h2>
       <p style={{ lineHeight: '1.6' }}>
-        Explore various cities and discover hidden gems, cultural spots, and amazing food!
+        I love to visit New York, Paris, and Tokyo.
       </p>
     </main>
   );

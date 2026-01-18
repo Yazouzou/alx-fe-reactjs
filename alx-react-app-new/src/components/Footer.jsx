@@ -10,7 +10,7 @@ const Footer = () => {
       padding: '15px',
       marginTop: '20px'
     }}>
-      <p>&copy; 2026 My City Guide. All rights reserved.</p>
+      <p>&copy; 2026 My Favorite Cities. All rights reserved.</p>
     </footer>
   );
 };
