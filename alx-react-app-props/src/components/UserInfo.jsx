@@ -1,4 +1,3 @@
-// src/ProfilePage.jsx
 // src/UserInfo.jsx
 import UserDetails from './UserDetails';
 
