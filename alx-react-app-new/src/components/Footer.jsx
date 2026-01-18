@@ -1,9 +1,18 @@
-function Footer() {
+// Footer.jsx
+import React from 'react';
+
+const Footer = () => {
   return (
-    <footer style={{ backgroundColor: '#222', color: 'white', textAlign: 'center', padding: '10px' }}>
-      <p>&copy; 2026 My Travel App</p>
+    <footer style={{
+      backgroundColor: 'navy',
+      color: 'white',
+      textAlign: 'center',
+      padding: '15px',
+      marginTop: '20px'
+    }}>
+      <p>&copy; 2026 My City Guide. All rights reserved.</p>
     </footer>
   );
-}
+};
 
 export default Footer;
