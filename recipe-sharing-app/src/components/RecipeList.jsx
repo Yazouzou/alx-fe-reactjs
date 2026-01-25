@@ -4,7 +4,7 @@ import { useRecipeStore } from './recipeStore';
 import SearchBar from './SearchBar';
 
 const RecipeList = () => {
-  const filteredRecipes = useRecipeStore((state) => state.filteredRecipes());
+  const filteredRecipes = useRecipeStore(state => state.filteredRecipes());
 
   return (
     <div>
