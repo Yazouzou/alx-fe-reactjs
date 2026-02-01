@@ -1,21 +1,7 @@
-import RecipeList from './components/RecipeList';
-import AddRecipeForm from './components/AddRecipeForm';
-
 function App() {
-  return (
-    <div
-      style={{
-        maxWidth: '600px',
-        margin: '40px auto',
-        padding: '20px',
-        fontFamily: 'Arial, sans-serif',
-      }}
-    >
-      <h1 style={{ textAlign: 'center' }}>Recipe Sharing App</h1>
-      <AddRecipeForm />
-      <RecipeList />
-    </div>
-  );
+  console.log(import.meta.env.VITE_APP_GITHUB_API_KEY);
+
+  return <h1>GitHub User Search</h1>;
 }
 
 export default App;
