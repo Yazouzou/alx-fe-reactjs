@@ -1,5 +1,6 @@
+// src/components/AddRecipeForm.jsx
 import { useState } from 'react';
-import { useRecipeStore } from './recipeStore'; // path must match recipeStore.js location
+import { useRecipeStore } from '../recipeStore';
 
 const AddRecipeForm = () => {
   const addRecipe = useRecipeStore((state) => state.addRecipe);
@@ -24,13 +25,16 @@ const AddRecipeForm = () => {
         placeholder="Title"
         required
       />
-      <input
-        type="text"
+      <br />
+      <textarea
         value={description}
         onChange={(e) => setDescription(e.target.value)}
         placeholder="Description"
         required
+        rows={4}
+        cols={50}
       />
+      <br />
       <button type="submit">Add Recipe</button>
     </form>
   );
