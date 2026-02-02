@@ -1,47 +1,36 @@
 import { useState } from 'react';
-import { useRecipeStore } from './recipeStore';
+import { useRecipeStore } from './recipeStore'; // path must match recipeStore.js location
 
 const AddRecipeForm = () => {
   const addRecipe = useRecipeStore((state) => state.addRecipe);
-
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-    if (!title.trim() || !description.trim()) {
-      alert('Please fill in all fields');
-      return;
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (title && description) {
+      addRecipe({ id: Date.now(), title, description });
+      setTitle('');
+      setDescription('');
     }
-
-    addRecipe({
-      id: Date.now(),
-      title,
-      description,
-    });
-
-    setTitle('');
-    setDescription('');
   };
 
   return (
     <form onSubmit={handleSubmit} style={{ marginBottom: '20px' }}>
       <input
         type="text"
-        placeholder="Title"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
-        style={{ width: '100%', padding: '8px', marginBottom: '10px' }}
+        placeholder="Title"
+        required
       />
-
-      <textarea
-        placeholder="Description"
+      <input
+        type="text"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
-        style={{ width: '100%', padding: '8px', marginBottom: '10px' }}
+        placeholder="Description"
+        required
       />
-
       <button type="submit">Add Recipe</button>
     </form>
   );

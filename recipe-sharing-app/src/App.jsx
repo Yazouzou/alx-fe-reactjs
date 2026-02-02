@@ -1,11 +1,15 @@
-import Search from "./components/Search";
+// src/App.jsx
+import AddRecipeForm from './components/AddRecipeForm';
+import RecipeList from './components/RecipeList';
 
 function App() {
-  console.log(import.meta.env.VITE_APP_GITHUB_API_KEY);
-  <div>
-  return <h1>GitHub User Search</h1>;
-  <Search />
-  </div>
+  return (
+    <div style={{ padding: '20px' }}>
+      <h1>Recipe Sharing App</h1>
+      <AddRecipeForm />
+      <RecipeList />
+    </div>
+  );
 }
 
 export default App;

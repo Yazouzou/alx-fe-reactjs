@@ -1,4 +1,4 @@
-import { create } from 'zustand';
+import create from 'zustand';
 
 // Zustand store for recipes
 export const useRecipeStore = create((set) => ({
