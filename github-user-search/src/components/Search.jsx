@@ -7,7 +7,7 @@ const Search = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  // NEW (added, not replacing)
+  
   const [location, setLocation] = useState("");
   const [minRepos, setMinRepos] = useState("");
   const [users, setUsers] = useState([]);
@@ -20,12 +20,12 @@ const Search = () => {
     setUsers([]);
 
     try {
-      // ✅ OLD BEHAVIOR (preserved)
+      
       if (!location && !minRepos) {
         const data = await fetchUserData(username);
         setUser(data);
       }
-      // ✅ NEW BEHAVIOR (added)
+      
       else {
         const results = await searchUsers({
           username,
