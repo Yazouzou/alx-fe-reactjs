@@ -11,10 +11,19 @@ function HomePage() {
   }, []);
 
   return (
+
     <div className="min-h-screen bg-gray-100 p-6">
       <h1 className="text-3xl font-bold mb-6 text-center">
         Recipe Sharing Platform
       </h1>
+<div className="flex justify-center mb-6">
+  <Link
+    to="/add"
+    className="bg-blue-500 text-white px-6 py-2 rounded-md hover:bg-blue-600 transition"
+  >
+    Add New Recipe
+  </Link>
+</div>
 
       <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {recipes.map((recipe) => (

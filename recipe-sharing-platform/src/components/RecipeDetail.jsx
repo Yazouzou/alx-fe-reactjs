@@ -58,12 +58,6 @@ function RecipeDetail() {
         </div>
 
         <div className="flex justify-center mb-6">
-      <Link
-       to="/add"
-       className="bg-blue-500 text-white px-6 py-2 rounded-md hover:bg-blue-600 transition"
-      >
-      Add New Recipe
-      </Link>
      </div>
 
 
