@@ -4,30 +4,39 @@ function RegistrationForm() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const [errors, setErrors] = useState({});
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!username || !email || !password) {
-      setError("All fields are required");
-      return;
+    let validationErrors = {};
+
+    if (!username) {
+      validationErrors.username = "Username is required";
     }
 
-    setError("");
-    console.log({ username, email, password });
+    if (!email) {
+      validationErrors.email = "Email is required";
+    }
 
-    // Reset form
-    setUsername("");
-    setEmail("");
-    setPassword("");
+    if (!password) {
+      validationErrors.password = "Password is required";
+    }
+
+    setErrors(validationErrors);
+
+    if (Object.keys(validationErrors).length === 0) {
+      console.log({ username, email, password });
+
+      setUsername("");
+      setEmail("");
+      setPassword("");
+    }
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <h2>User Registration</h2>
-
-      {error && <p style={{ color: "red" }}>{error}</p>}
 
       <div>
         <label>Username:</label>
@@ -36,6 +45,9 @@ function RegistrationForm() {
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
+        {errors.username && (
+          <p style={{ color: "red" }}>{errors.username}</p>
+        )}
       </div>
 
       <div>
@@ -45,6 +57,9 @@ function RegistrationForm() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
+        {errors.email && (
+          <p style={{ color: "red" }}>{errors.email}</p>
+        )}
       </div>
 
       <div>
@@ -54,6 +69,9 @@ function RegistrationForm() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
+        {errors.password && (
+          <p style={{ color: "red" }}>{errors.password}</p>
+        )}
       </div>
 
       <button type="submit">Register</button>
