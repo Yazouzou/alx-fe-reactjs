@@ -1,20 +1,23 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 export default function TodoList() {
   const [todos, setTodos] = useState([
-    { id: 1, text: "Learn React", completed: false },
-    { id: 2, text: "Build a Todo App", completed: false },
+    { id: 1, text: 'Learn React', completed: false },
+    { id: 2, text: 'Write tests', completed: false },
   ]);
-  const [input, setInput] = useState("");
+
+  const [newTodo, setNewTodo] = useState('');
 
   const addTodo = (e) => {
     e.preventDefault();
-    if (!input.trim()) return;
-    setTodos([
-      ...todos,
-      { id: Date.now(), text: input.trim(), completed: false },
-    ]);
-    setInput("");
+    if (!newTodo.trim()) return;
+    const todo = {
+      id: Date.now(),
+      text: newTodo,
+      completed: false,
+    };
+    setTodos([...todos, todo]);
+    setNewTodo('');
   };
 
   const toggleTodo = (id) => {
@@ -34,25 +37,26 @@ export default function TodoList() {
       <h1>Todo List</h1>
       <form onSubmit={addTodo}>
         <input
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          placeholder="Add new todo"
+          type="text"
+          placeholder="Add a todo"
+          value={newTodo}
+          onChange={(e) => setNewTodo(e.target.value)}
         />
         <button type="submit">Add</button>
       </form>
+
       <ul>
         {todos.map((todo) => (
           <li
             key={todo.id}
-            style={{
-              textDecoration: todo.completed ? "line-through" : "none",
-              cursor: "pointer",
-            }}
             onClick={() => toggleTodo(todo.id)}
+            style={{ textDecoration: todo.completed ? 'line-through' : 'none', cursor: 'pointer' }}
             data-testid={`todo-${todo.id}`}
           >
-            {todo.text}{" "}
-            <button onClick={() => deleteTodo(todo.id)}>Delete</button>
+            {todo.text}
+            <button onClick={(e) => { e.stopPropagation(); deleteTodo(todo.id); }} data-testid={`delete-${todo.id}`}>
+              Delete
+            </button>
           </li>
         ))}
       </ul>
